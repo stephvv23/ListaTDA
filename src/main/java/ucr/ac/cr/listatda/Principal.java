@@ -28,11 +28,11 @@ public class Principal {
                     + "5. Limpiar lista. \n"
                     + "6. Obtener el primer objeto.\n"
                     + "7. Imprimir toda la lista.\n"
-                    + "8. Obtener el primer objeto.\n"));
+                    + "8. Salir.\n"));
 
             switch (opcion) {
                 case 1: //Insertar
-                    dato = Integer.parseInt(JOptionPane.showInputDialog("Digite el valor a almacenar al inicio"));
+                    dato = Integer.parseInt(JOptionPane.showInputDialog("Digite el valor a almacenar7"));
                     posicion = Integer.parseInt(JOptionPane.showInputDialog("Digite la posicion donde desea almacenarlo"));
 
                     listaTDA.insertar(dato, posicion);
@@ -44,7 +44,7 @@ public class Principal {
                 case 3://Recupera
                     posicion = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite la posicion a buscar",
                             "Insertar DESPUES de..", JOptionPane.QUESTION_MESSAGE));
-                    JOptionPane.showMessageDialog(null, listaTDA.recupera(posicion).getDato());
+                    JOptionPane.showMessageDialog(null, listaTDA.recupera(posicion));
                     break;
                 case 4://Suprime
                     dato = Integer.parseInt(JOptionPane.showInputDialog("Digite la posicion del elemento que desea eliminar "));

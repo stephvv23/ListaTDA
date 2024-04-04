@@ -71,17 +71,15 @@ public class ListaTDA {
     }
 
 //    public int recupera(int posicion) {
-//        if (posicion < this.contarElementos()) {
-//            if (posicion == this.contarElementos()) {
-//                return ultimo.getDato();
-//            }
+//
 //            Nodo indice = this.primero;
 //            int contador = 0;
 //            while (indice != null) {
-//                contador++;//Para dar la posicion que el usuario espera
+//                
 //                if (contador == posicion) {
 //                    return indice.getDato();
 //                }
+//                contador++;
 //                indice = indice.getSiguiente();
 //            }
 //        }

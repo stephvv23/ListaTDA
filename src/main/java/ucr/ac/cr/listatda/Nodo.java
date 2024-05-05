@@ -8,39 +8,35 @@ package ucr.ac.cr.listatda;
  *
  * @author Stephanie
  */
-public class Nodo {
+public class Nodo<T> {
 
-    private int dato;
+    private T dato;
     private Nodo siguiente;
 
-    public Nodo() {
-        this.dato = 0;
-        this.siguiente = null;
-    }
-
-    public Nodo(int dato) {
+    public Nodo(T dato) {
         this.dato = dato;
-        this.siguiente = null;
     }
 
-    public Nodo(int dato, Nodo siguiente) {
+    public Nodo(T dato, Nodo siguiente) {
         this.dato = dato;
         this.siguiente = siguiente;
     }
 
-    public void setDato(int dato) {
+    public T getDato() {
+        return dato;
+    }
+
+    public void setDato(T dato) {
         this.dato = dato;
     }
 
-    public int getDato() {
-        return this.dato;
+    public Nodo getSiguiente() {
+        return siguiente;
     }
 
     public void setSiguiente(Nodo siguiente) {
         this.siguiente = siguiente;
     }
 
-    public Nodo getSiguiente() {
-        return this.siguiente;
-    }
+    
 }

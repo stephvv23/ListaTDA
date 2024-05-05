@@ -8,18 +8,18 @@ package ucr.ac.cr.listatda;
  *
  * @author Stephanie
  */
-public class ListaTDA {
+public class ListaTDA<T> {
 
-    private Nodo primero;
-    private Nodo ultimo;
+    private Nodo<T> primero;
+    private Nodo<T> ultimo;
 
     public ListaTDA() {
         primero = null;
         ultimo = null;
     }
 
-    public void insertar(int dato, int posicion) {
-        Nodo nuevo = new Nodo(dato);
+    public void insertar(T dato, int posicion) {
+        Nodo<T> nuevo = new Nodo<T>(dato);
         if (this.esVacia()) {
             primero = nuevo;
             ultimo = nuevo;
@@ -28,19 +28,17 @@ public class ListaTDA {
             primero = nuevo;
         } else {
 
-            Nodo aux = null;
-            Nodo indice = primero;
+            Nodo<T> aux = null;
+            Nodo<T> indice = primero;
             int contador = 0;
 
             while (indice != null) {
 
                 if (posicion == contador) {
-                    System.out.println("B");
                     nuevo.setSiguiente(indice);
                     aux.setSiguiente(nuevo);
                     break;
                 } else if (indice == ultimo) {
-                    System.out.println("A");
                     this.ultimo.setSiguiente(nuevo);
                     this.ultimo = nuevo;
                     break;
@@ -68,8 +66,8 @@ public class ListaTDA {
 
             } else {
                 // Eliminar un nodo en medio de la lista
-                Nodo indice = primero;
-                Nodo anterior = null;
+                Nodo<T> indice = primero;
+                Nodo<T> anterior = null;
                 int contador = 0;
 
                 while (indice != null) {
@@ -93,46 +91,45 @@ public class ListaTDA {
 
     }
 
-    public int recupera(int posicion) {
+    public T recupera(int posicion) {
 
-        Nodo indice = this.primero;
+        Nodo<T> indice = this.primero;
         int contador = 0;
+        T elemento = null;
         while (indice != null) {
 
             if (contador == posicion) {
-                return indice.getDato();
+                elemento = indice.getDato();
             }
             contador++;
             indice = indice.getSiguiente();
         }
-        return -1;
+        return elemento;
     }
 
     // DEBERIA SER CON DATO, no con carnet
-    public Integer localiza(int dato) {
-        Nodo nodoIndice = primero;
-        int indice = 0;
+    public Integer localiza(T dato) {
+        Nodo<T> nodoIndice = primero;
+        int contador = 0;
         while (nodoIndice != null) {
 
-            if (nodoIndice.getDato() == dato) {
-                return indice;
+            if (nodoIndice.getDato().equals(dato)) {
+                return contador;
             }
             nodoIndice = nodoIndice.getSiguiente();
-            indice++;
+            contador++;
         }
-        return -1;
+        return null;
     }
 
     public String imprimirLista() {
-        Nodo indice = primero;
-        int contador = 0;
-        String mensaje = "Lista: \n";
+        Nodo<T> indice = primero;
+        String mensaje = "";
         while (indice != null) {
-            mensaje += contador + " [" + indice.getDato() + "],";
-            contador++;
+            mensaje += "[" + indice.getDato().toString() + "]  ";
             indice = indice.getSiguiente();
         }
-        return mensaje;
+        return mensaje+"\n";
     }
 
     public boolean esVacia() {
@@ -144,7 +141,7 @@ public class ListaTDA {
         ultimo = null;
     }
 
-    public int primero() {
+    public T primero() {
         return primero.getDato();
     }
 }

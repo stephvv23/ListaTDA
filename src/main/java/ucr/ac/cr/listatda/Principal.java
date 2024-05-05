@@ -10,10 +10,10 @@ import javax.swing.JTextArea;
 
 public class Principal {
 
-    ListaTDA listaTDA;
+    ListaTDA<Integer> listaTDA;
 
     public Principal() {
-         listaTDA = new ListaTDA();
+         listaTDA = new ListaTDA<Integer>();
         menu();
     }
 
